@@ -1,0 +1,11 @@
+<h1> Détail de la réservation </h1>
+
+
+ Arrivé: <%= @reservation.arrival_date.to_date %> Départ :<%= @reservation.departure_date.to_date%> <br/>
+ Chambre <%= @reservation.room_id %><br/>
+ Nom du client: <%= @reservation.room_request %><br/>
+
+
+<button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Modifié la réservation', edit_reservation_path(@reservation) %></button>
+<button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Retour aux réservations', reservations_path%></button>
+<button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Administration', root_path %> </button>

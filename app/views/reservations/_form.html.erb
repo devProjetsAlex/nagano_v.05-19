@@ -1,0 +1,32 @@
+
+
+<%= form_with(model: @reservation,local: true) do |f| %>
+
+  <div class="form-row">
+  <div class="form-group col-md-2">
+    <%= f.label :Arrivé, class:"col-8 col-form-label"  %>
+    <%= f.date_field :arrival_date, autofocus: true, class: 'form-control' %>
+  </div>
+  <div class="form-group col-md-2">
+    <%= f.label :Départ %>
+    <%= f.date_field :departure_date, autofocus: true, class: 'form-control' %>
+  </div>
+    <div class="form-group col-md-2">
+    <%= f.label :Chambre %>
+    <%= f.number_field :room_id, autofocus: true, class: 'form-control' %>    
+  </div>
+  </div>
+
+
+<div class="form-group row ">
+      <%= f.label :room_request,class:"col-8 col-form-label" %> <br/>
+      <%= f.text_field :room_request, class: 'form-control' %>
+   </div>
+
+ <div class="form-group row ">
+   <button type="button" class="btn btn-sm btn-outline-secondary col-2 col-form-label"><%= f.submit %> </button>
+  <button type="button" class="btn btn-sm btn-outline-secondary col-2 col-form-label"><%= link_to 'Retour au réservation', reservations_path%></button>
+   </div>
+  <% end %> 
+
+  

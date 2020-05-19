@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  arrival_date: 2020-05-19
+  departure_date: 2020-05-19
+  room_id: 1
+  room_request: MyString
+
+two:
+  arrival_date: 2020-05-19
+  departure_date: 2020-05-19
+  room_id: 1
+  room_request: MyString
