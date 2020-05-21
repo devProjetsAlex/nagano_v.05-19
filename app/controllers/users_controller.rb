@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = "Vous pouvez maintenant effectuée des réservations de chambres #{user.username}."
+      flash[:notice] = "Vous pouvez maintenant effectuée des réservations de chambres #{@user.username}."
       redirect_to root_path
     else
       render 'new'
