@@ -25,12 +25,12 @@
         </div>
 
         <div class="form-group row justify-content-center">
-          <%= f.submit "S'enregistrer", class: "btn btn-outline-light btn-lg" %>
+         <%= f.submit(@user.new_record? ? "S'enregistrer" : "Modifié le compte", class: "btn btn-outline-light btn-lg") %>
         </div>
       <% end %>
     </div>
     <div class="mb-3">
-      <%= link_to '[ Cancel and return to articles listing ]', root_path, class: "text-info" %>
+      <%= link_to '[ Retour au chambre disponible. ]', root_path, class: "text-info" %>
     </div>
   </div>
 </div>

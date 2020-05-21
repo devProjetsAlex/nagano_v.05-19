@@ -1,0 +1,36 @@
+<h1>Liste des réservation </h1>
+
+<table>
+  <thead>
+      <tr>
+				<th> Arrivé </th>
+				<th> Départ </th>
+				<th> Chambre </th>
+				<th> Nom du client </th>
+				<th> Email </th>
+				<th> Demande spécial </th>
+				<th> Action </th>
+				<th></th>
+				<th> Réservée il y a :</th>
+      </tr>
+  </thead>
+
+	
+	<tbody>
+		<% @reservations.each do |reservation| %>
+			<tr>
+				<td><%= reservation.arrival_date.to_date %> </td>
+				<td><%= reservation.departure_date.to_date%> </td>
+				<td><%= reservation.room_id %> </td>
+				<td><%= reservation.user.username%></td>
+				<td><%= reservation.user.email%></td>
+				<td><%= reservation.room_request %> </td>
+			    <td><button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Voir la réservation', reservation_path(reservation), class:"text-info"%> </button></td>
+				<td><button type="button" class="btn btn-sm btn-outline-danger"><%= link_to 'Annulé la réservation', reservation_path(reservation), method: :delete, data:{confirm: "Ëtes-vous sur? "} , class:"text-danger"%></button></td>
+					<td><%= time_ago_in_words(reservation.created_at) %></td>
+			</tr>
+		<% end %>
+	</tbody>	
+</table>
+
+<button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Administration', root_path %> </button>
