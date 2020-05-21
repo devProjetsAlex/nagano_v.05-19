@@ -21,6 +21,7 @@ class ReservationsController < ApplicationController
   
       def create
         @reservation = Reservation.new(reservation_params)
+        @reservation.user = User.first
         if @reservation.save
           flash[:notice] = "La réservation a été enregistrée."
           redirect_to @reservation
