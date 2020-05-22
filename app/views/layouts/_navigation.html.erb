@@ -9,18 +9,22 @@
     <li class="nav-item <%= 'active' if request.path == root_path %>">
         <%= link_to 'Accueil', root_path, class:"nav-link" %>      
       </li>
+      
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Réservation
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       
-        <%= link_to "S'enregistrer", signup_path, class:"dropdown-item"%>      
-    
+        <%= link_to "S'enregistrer", signup_path, class:"dropdown-item"%>  
+
+        
+
           <div class="dropdown-divider"></div>
 
          <%= link_to 'Prendre une réservation', new_reservation_path, class:"dropdown-item"%>
-          
+        
+     
         </div>
           <li class="nav-item <%= 'active' if request.path == root_path %>">
         <%= link_to 'Administration', root_path, class:"nav-link" %>      
