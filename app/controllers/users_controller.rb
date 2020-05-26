@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       flash[:notice] = "La modification de votre compte est terminée."
-      redirect_to reservations_path
+      redirect_to @user
     else
       render 'edit'
     end
