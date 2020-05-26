@@ -1,4 +1,21 @@
 <p>Liste des réservation </p>
 
-<%= render 'reservation' %>
+<div class="container">
+<div class="apple_pagination">
+    <div class="page_info">
+      <%= page_entries_info @reservations %>
+    </div>
+    <%= will_paginate @reservations , :container => false %>
+  </div>
+  </div>
+<%= render 'reservation'%>
 
+<div class="container">
+<div class="apple_pagination">
+    <div class="page_info">
+      <%= page_entries_info @reservations %>
+    </div>
+    <%= will_paginate @reservations , :container => false %>
+  </div>
+  <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Administration', root_path %> </button>
+  </div>

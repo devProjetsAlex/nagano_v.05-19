@@ -1,6 +1,14 @@
 <h1 class="text-center mt-4">Liste des utilisateurs du sites. </h1>
 
 <div class="container">
+
+    <div class="page_info">
+      <%= page_entries_info @users %>
+    </div>
+<div class="apple_pagination">
+    <%= will_paginate @users , :container => false %>
+  </div>
+
   <% @users.each do |user| %>
     <div class="row justify-content-md-center">
       <div class="col-8 mt-4">
@@ -19,6 +27,7 @@
             <small>Subscribe <%= time_ago_in_words(user.created_at) %> ago</small>
           </div>
       
+
+
     </div>
   <% end %>
-</div>

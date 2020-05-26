@@ -1,5 +1,6 @@
+
+<div class='container'>
 <h1 class="text-center mt-4"><%= @user.username%> réservations  <%= link_to "Modifié son profile", edit_user_path(@user), class: "btn btn-outline-info" %> </h1>
-
-
-
 <%= render 'reservations/reservation' %>
+<button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Administration', root_path %> </button>
+</div>
