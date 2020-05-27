@@ -1,21 +1,13 @@
 <p>Liste des réservation </p>
 
-<div class="container">
-<div class="apple_pagination">
-    <div class="page_info">
-     
-    </div>
-  
-  </div>
-  </div>
-<%= render 'reservation'%>
+<h1 class="text-center mt-4">Listing all articles</h1>
 
-<div class="container">
 <div class="apple_pagination">
-    <div class="page_info">
-  
-    </div>
-    
-  </div>
-  <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Administration', root_path %> </button>
-  </div>
+  <%= will_paginate @reservations, :container => false %>
+</div>
+
+<%= render 'reservation' %>
+
+<div class="apple_pagination mb-4">
+  <%= will_paginate @reservations, :container => false %>
+</div>
