@@ -31,11 +31,11 @@
           <%= link_to "Se connecter", login_path, class:"dropdown-item"%>   
 
         <% end %>
-
+        <% if logged_in? %>
         <div class="dropdown-divider"></div>
 
          <%= link_to 'Prendre une réservation', new_reservation_path, class:"dropdown-item"%>
-        
+        <% end %>
      
         </div>
           <li class="nav-item <%= 'active' if request.path == root_path %>">
