@@ -7,7 +7,7 @@ class ReservationsController < ApplicationController
       end
   
       def index
-        @reservations = Reservation.paginate(page: params[:page], per_page: 24)
+          @reservations = Reservation.all
       end
   
       def new
@@ -43,8 +43,7 @@ class ReservationsController < ApplicationController
         @reservation.destroy
         redirect_to reservations_path
       end
-
-        private
+      private
       def set_reservation
       @reservation = Reservation.find(params[:id])
       end
