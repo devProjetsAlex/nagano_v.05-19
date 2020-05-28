@@ -9,6 +9,14 @@ class ApplicationController < ActionController::Base
 	
   def logged_in?
     !!current_user
-	end
+  end
+  
+
+  def require_user
+    if !logged_in?
+      flash[:alert] = "Vous devez être connecter a une session pour créer une réservation."
+      redirect_to login_path
+    end
+  end
 	
 end
