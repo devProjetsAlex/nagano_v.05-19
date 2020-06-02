@@ -55,9 +55,10 @@ class ReservationsController < ApplicationController
       end
 
       def require_same_user
-        if current_user != @reservation.user
+        if current_user != @reservation.user && !current_user.admin?
           flash[:alert] ="Vous pouvez modifier vos réservations uniquement. "
           redirect_to @reservation
+
         end
       end
 

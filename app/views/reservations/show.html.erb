@@ -1,5 +1,5 @@
 <div class='container'>
- <% if logged_in? && @reservation.user == current_user %>
+ <% if logged_in? && (@reservation.user == current_user || current_user.admin?)%>
 <h1> Détail de la réservation </h1>
 
 
