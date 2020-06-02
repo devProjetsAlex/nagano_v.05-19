@@ -1,48 +1,51 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Nagano Comfort Inn </a>
+  <%= link_to "Nagano Comfort Inn", root_path, class: "navbar-brand", id: "logo" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-    <li class="nav-item <%= 'active' if request.path == root_path %>">
-        <%= link_to 'Accueil', root_path, class:"nav-link" %>      
+      <li class="nav-item">
+        <%= link_to "Clients", users_path, class: "nav-link" %>
       </li>
-      
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Réservation
+          Reservation
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-        <% if logged_in? %>
-
-         
-              <%= link_to current_user.username, user_path(current_user), class:"dropdown-item" %>
-        
-  
-         
-        <%= link_to "Se déconnnecter", logout_path, class:"dropdown-item", method: :delete %>     
-           
-        <% else %>
-        
-          <%= link_to "S'enregistrer", signup_path, class:"dropdown-item"%>
-          <%= link_to "Se connecter", login_path, class:"dropdown-item"%>   
-
-        <% end %>
-        <% if logged_in? %>
-        <div class="dropdown-divider"></div>
-
-         <%= link_to 'Prendre une réservation', new_reservation_path, class:"dropdown-item"%>
-        <% end %>
-     
+          <% if logged_in? %>
+            <%= link_to "Prendre une reservation", new_reservation_path, class: "dropdown-item" %>
+          <% end %>  
+          <%= link_to "Voir les reservations", reservations_path, class: "dropdown-item" %>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
         </div>
-          <li class="nav-item <%= 'active' if request.path == root_path %>">
-        <%= link_to 'Administration', root_path, class:"nav-link" %>      
       </li>
-      </li>
-    </ul>
+
+      <% if logged_in? %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Profile [<%= current_user.username %>]
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Delete profile", user_path(current_user), class: "dropdown-item text-danger", method: :delete, data: { confirm: "Are you sure?" } %> 
+          </div>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Logout', logout_path, class: "nav-link", method: :delete %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'Log in', login_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Sign up', signup_path, class: "nav-link" %>
+        </li>
+      <% end %>
+      </ul>
     <form class="form-inline my-2 my-lg-0">
 
       <div class="form-group row">
