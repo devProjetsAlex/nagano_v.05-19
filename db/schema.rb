@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_02_160225) do
+ActiveRecord::Schema.define(version: 2020_06_11_185145) do
 
   create_table "reservations", force: :cascade do |t|
     t.date "arrival_date"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 2020_06_02_160225) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.integer "room_id"
+    t.string "room_description"
+    t.integer "room_price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
