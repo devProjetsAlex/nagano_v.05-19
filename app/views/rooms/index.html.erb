@@ -1,9 +1,37 @@
-<h1> Modifier la description de la chambre. </h1>
+        
 
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Nagano Comfort Inn</h1>
+    <p class="lead">Un hotel confortable pour tout les goûts.</p>
+  </div>
+</div>
 
-<%= render 'form' %>
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <% @rooms.each do |room| %>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            <div class="container">
+ <div class="card" style="width: 18rem;">
+     <p class="card-title">Chambre N.<%= room.room_id %></p>
+  <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em"><%= room.room_price %>0$</text></svg>
+    <div class="card-body">
+     <p class="container"><%= room.room_description %>  </p>
+       <div class="btn-group">
+          <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Réserver', new_reservation_path %></button>
+          <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Retour au chambres', rooms_path %></button>
+       </div>
+     </div>
+  </div>
+</div>
+          </div>
+        </div>   
+			<% end %>
+    </div>
+  </div>
+</div>
 
-  <p>
-     <%= link_to 'Effacer', room_path(@room), method: :delete, data: {confirm: "Ëtes-vous sur? "} %> 
-     <%= link_to 'Retour au chambres', rooms_path %>
-    </p>
+  
+  
